@@ -49,6 +49,21 @@
       "id": 10,
       "quote": "You know, failure hurts. Any kind of failure stings. If you live in the sting, you will undoubtedly fail. My way of getting past the sting is to say no, I’m just not going to let this get me down.",
       "author": "Sonia Sotomayor"
+    },
+    {
+      "quote": "If you're the smartest person in the room, you're in the wrong room",
+      "author": "unknown",
+      "id": 11
+    },
+    {
+      "quote": "If you're the smartest person in the room, you're in the wrong room",
+      "author": "unknown",
+      "id": 13
+    },
+    {
+      "quote": "If you're the smartest person in the room, you're in the wrong room",
+      "author": "unknown",
+      "id": 14
     }
   ],
   "likes": [
@@ -289,6 +304,70 @@
     {
       "quoteId": 2,
       "id": 59
+    },
+    {
+      "quoteId": 13,
+      "id": 60
+    },
+    {
+      "quoteId": 13,
+      "id": 61
+    },
+    {
+      "quoteId": 13,
+      "id": 62
+    },
+    {
+      "quoteId": 13,
+      "id": 63
+    },
+    {
+      "quoteId": 13,
+      "id": 64
+    },
+    {
+      "quoteId": 13,
+      "id": 65
+    },
+    {
+      "quoteId": 11,
+      "id": 66
+    },
+    {
+      "quoteId": 11,
+      "id": 67
+    },
+    {
+      "quoteId": 2,
+      "id": 68
+    },
+    {
+      "quoteId": 5,
+      "id": 69
+    },
+    {
+      "quoteId": 5,
+      "id": 70
+    },
+    {
+      "quoteId": 5,
+      "id": 71
+    },
+    {
+      "quoteId": 5,
+      "id": 72
+    },
+    {
+      "quoteId": 5,
+      "id": 73
+    },
+    {
+      "quoteId": 5,
+      "id": 74
+    },
+    {
+      "quoteId": 5,
+      "id": 75
     }
   ]
 }

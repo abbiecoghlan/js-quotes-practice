@@ -60,6 +60,7 @@ function main(){
 
 const populateURL = 'http://localhost:3000/quotes?_embed=likes'
 const quoteContainer = document.querySelector('#quote-list')
+const form = document.querySelector("#new-quote-form")
 
 function fetchQuotes(){
     fetch(populateURL)
@@ -96,8 +97,13 @@ function displayQuote(quote){
     const newLikeButton = document.createElement('button')
     newLikeButton.className = 'btn-success'
     newLikeButton.id = quote.id
-    newLikeButton.dataset.likes = parseInt(quote.likes.length)
-    newLikeButton.innerHTML = `Likes: <span>${newLikeButton.dataset.likes}</span>`
+    if (quote.likes){
+        newLikeButton.dataset.likes = parseInt(quote.likes.length)
+        newLikeButton.innerHTML = `Likes: <span>${newLikeButton.dataset.likes}</span>`
+    } else {
+        newLikeButton.dataset.likes = 0
+        newLikeButton.innerHTML = `Likes: <span>${newLikeButton.dataset.likes}</span>`
+        }
     newLikeButton.addEventListener('click', likeQuote)
 
     const newDeleteButton = document.createElement('button')
@@ -106,7 +112,16 @@ function displayQuote(quote){
     newDeleteButton.innerText = "Delete"
     newDeleteButton.addEventListener('click', deleteQuote)
 
-    newBlockquote.append(newP, newFooter, newBreak, newLikeButton, newDeleteButton)
+    const newEditButton = document.createElement('button')
+    newEditButton.className = 'btn-edit'
+    newEditButton.id = quote.id
+    newEditButton.innerText = "Edit"
+    newEditButton.addEventListener('click', editQuote)
+
+    
+
+
+    newBlockquote.append(newP, newFooter, newBreak, newLikeButton, newDeleteButton, newEditButton)
     newli.append(newBlockquote)
     quoteContainer.append(newli)
     
@@ -164,7 +179,42 @@ function deleteQuote(e){
 
 
 function newQuoteListener(){
+ 
+    form.addEventListener('submit', createNewQuote)
 
+
+}
+
+function createNewQuote(e){
+    e.preventDefault()
+
+    const newQuote = {
+        quote: e.target['quote'].value,
+        author: e.target['author'].value
+      }
+  
+  
+      const reqObj = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: "application/json"
+        },
+        body: JSON.stringify(newQuote)
+      }
+  
+      fetch('http://localhost:3000/quotes', reqObj)
+        .then((res) => res.json())
+        .then(quote => {
+          form.reset()
+          displayQuote(quote) 
+        })
+
+
+}
+
+function editQuote(e){
+    console.log("edit")
 }
 
 
