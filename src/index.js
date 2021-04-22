@@ -118,10 +118,15 @@ function displayQuote(quote){
     newEditButton.innerText = "Edit"
     newEditButton.addEventListener('click', editQuote)
 
+    const newEditForm = document.createElement('form')
+    newEditForm.innerHTML = `<div class="form-group"><label for=“edit-quote">Edit Quote</label><input name="quote" type="text" class="form-control" ></div><div class="form-group"><label for="Author">Author</label><input name="author" type="text" class="form-control" id="author" placeholder="Flatiron School"></div><button id="edit" type="submit" class="btn btn-primary">Update</button>`
     
+    newEditForm.id = quote.id
+    newEditForm.style.display = "none"
+    let updateButton = newEditForm.querySelector('button')
+    updateButton.addEventListener("click", updateQuote)
 
-
-    newBlockquote.append(newP, newFooter, newBreak, newLikeButton, newDeleteButton, newEditButton)
+    newBlockquote.append(newP, newFooter, newBreak, newLikeButton, newDeleteButton, newEditButton, newEditForm)
     newli.append(newBlockquote)
     quoteContainer.append(newli)
     
@@ -214,7 +219,20 @@ function createNewQuote(e){
 }
 
 function editQuote(e){
+    e.target.nextElementSibling.style.display = ""
+    e.target.nextElementSibling["quote"].value = e.target.parentElement.firstElementChild.innerText
+    e.target.nextElementSibling["author"].value = e.target.parentElement.firstElementChild.nextSibling.innerText
+    
     console.log("edit")
+
+}
+
+function updateQuote(e){
+    
+    e.preventDefault()
+    
+    console.log(e.target.value["quote"])
+    console.log(e.target.value["author"])
 }
 
 
